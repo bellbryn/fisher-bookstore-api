@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fisher.Bookstore.Api.Data;
 using Fisher.Bookstore.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,15 +23,15 @@ namespace Fisher.Bookstore.Api.Controllers
                 this.db.Authors.Add(new Author
                 {
                     Id = 1,
-                    AuthorName = "Stephen King",
-                    AuthorGenre= "Horror"
+                    Name = "Stephen King",
+                    Bio= "Horror"
                 });
 
                 this.db.Authors.Add(new Author
                 {
                     Id = 2,
-                    AuthorName = "Hank Hill",
-                    AuthorGenre= "Propane and Propane Accessories"
+                    Name = "Hank Hill",
+                    Bio = "Propane and Propane Accessories are my life"
                 });
 
                 this.db.SaveChanges();
@@ -80,8 +81,7 @@ namespace Fisher.Bookstore.Api.Controllers
             }
 
             currentAuthor.Id = newAuthor.Id;
-            currentAuthor.AuthorName = newAuthor.AuthorName;
-            currentAuthor.AuthorGenre = newAuthor.AuthorGenre;
+            currentAuthor.Name = newAuthor.Name;
 
             this.db.Authors.Update(currentAuthor);
             this.db.SaveChanges();
